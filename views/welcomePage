@@ -1,0 +1,13 @@
+extends layout
+
+block content
+
+    meta(http-equiv='cache-control', content='no-store')
+            title Welcome to your portfolio site
+            
+            form(method=get, action='/sayHi')
+                label(for='yourName') YourName: 
+                br
+                input(name='yourName')
+
+                input(type='submit', name='submit', value='Go')

@@ -17,7 +17,6 @@ html(lang='en')
     link(rel='stylesheet', href='css/animate.min.css', type='text/css')
     // Custom CSS
     link(rel='stylesheet', href='css/creative.css', type='text/css')
-    link(rel='stylesheet', href='stylesheets/style.css' type='text/css')
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
@@ -60,71 +59,100 @@ html(lang='en')
     section#about.bg-primary
       .container
         .row
-          .col-xs-12.col-sm-12.col-md-6.col-lg-6.col-lg-pull-6.text-center
+          .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
             h2.section-heading Login
             hr.light
             p.text-faded
               | Upload your work, or browse through other portfolios
+            .form-group
+                label.cols-sm-2.control-label(for='username') Username
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-users.fa(aria-hidden='true')
+                    input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+            .form-group
+              label.cols-sm-2.control-label(for='password') Password
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-lock.fa-lg(aria-hidden='true')
+                  input#password.form-control(type='password', name='password', placeholder='Enter your Password')
             a.btn.btn-default.btn-xl(href='#') Get Started!
           
-           .col-xs-12.col-sm-12.col-md-6.col-lg-6.col-lg-pull-6.text-center
+           .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
               h2.section-heading Register
               hr.light
               p.text-faded
                 | Upload your work, or browse through other portfolios  
-              form(action='/login', method='post')
-                label(for='firstname') First Name  
-                input(name='firstname')
-                br
-                br
-                label(for='surname') Surname
-                input(name='surname')
-                br
-                br
-                label(for='username') Username
-                input(name='userName')
-                br
-                br
-                label(for='password') Password
-                input(type='password', name='password')
-                br
-                br
-                label(for='confirmpassword') Confirm Password
-                input(type='password', name='password')
-                br
-                br
-                a.btn.btn-default.btn-xl(href='#') Get Started!
-           
+              .form-group
+                label.cols-sm-2.control-label(for='name') Your Name
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-user.fa(aria-hidden='true')
+                    input#name.form-control(type='text', name='name', placeholder='Enter your Name')
+              .form-group
+                label.cols-sm-2.control-label(for='email') Your Email
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-envelope.fa(aria-hidden='true')
+                    input#email.form-control(type='text', name='email', placeholder='Enter your Email')
+              .form-group
+                label.cols-sm-2.control-label(for='username') Username
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-users.fa(aria-hidden='true')
+                    input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+              .form-group
+                label.cols-sm-2.control-label(for='password') Password
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-lock.fa-lg(aria-hidden='true')
+                    input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+              .form-group
+                label.cols-sm-2.control-label(for='confirm') Confirm Password
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-lock.fa-lg(aria-hidden='true')
+                    input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
+
+              a.btn.btn-default.btn-xl(href='#') Get Started!
+                    
           
             
     section#services
       .container
         .row
           .col-lg-12.text-center
-            h2.section-heading At Your Service
+            h2.section-heading Your Portfolio Options
             hr.primary
       .container
         .row
           .col-lg-3.col-md-6.text-center
             .service-box
-              i.fa.fa-4x.fa-diamond.wow.bounceIn.text-primary
-              h3 Sturdy Templates
-              p.text-muted Our templates are updated regularly so they don't break.
+              i.fa.fa-4x.fa-camera.wow.bounceIn.text-primary
+              h3 Photographs
+              p.text-muted Show your photos in their best light.
           .col-lg-3.col-md-6.text-center
             .service-box
-              i.fa.fa-4x.fa-paper-plane.wow.bounceIn.text-primary(data-wow-delay='.1s')
-              h3 Ready to Ship
-              p.text-muted You can use this theme as is, or you can make changes!
+              i.fa.fa-4x.fa-video-camera.wow.bounceIn.text-primary(data-wow-delay='.1s')
+              h3 Videos
+              p.text-muted Broadcast your videos to a wider audience.
           .col-lg-3.col-md-6.text-center
             .service-box
-              i.fa.fa-4x.fa-newspaper-o.wow.bounceIn.text-primary(data-wow-delay='.2s')
-              h3 Up to Date
-              p.text-muted We update dependencies to keep things fresh.
+              i.fa.fa-4x.fa-code.wow.bounceIn.text-primary(data-wow-delay='.2s')
+              h3 Repos
+              p.text-muted Include your favourite repositories in your portfolio.
           .col-lg-3.col-md-6.text-center
             .service-box
-              i.fa.fa-4x.fa-heart.wow.bounceIn.text-primary(data-wow-delay='.3s')
-              h3 Made with Love
-              p.text-muted You have to make your websites with love these days!
+              i.fa.fa-4x.fa-gamepad.wow.bounceIn.text-primary(data-wow-delay='.3s')
+              h3 SWFs
+              p.text-muted Embed your SWFs directly to your page.
     section#portfolio.no-padding
       .container-fluid
         .row.no-gutter
@@ -182,26 +210,22 @@ html(lang='en')
                     | Category
                   .project-name
                     | Project Name
-    aside.bg-dark
-      .container.text-center
-        .call-to-action
-          h2 Free Download at Start Bootstrap!
-          a.btn.btn-default.btn-xl.wow.tada(href='#') Download Now!
+   
     section#contact
       .container
         .row
           .col-lg-8.col-lg-offset-2.text-center
-            h2.section-heading Let's Get In Touch!
+            h2.section-heading Need some tips?
             hr.primary
             p
-              | Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!
+              | Contact Form?
           .col-lg-4.col-lg-offset-2.text-center
             i.fa.fa-phone.fa-3x.wow.bounceIn
             p 123-456-6789
           .col-lg-4.text-center
             i.fa.fa-envelope-o.fa-3x.wow.bounceIn(data-wow-delay='.1s')
             p
-              a(href='mailto:your-email@your-domain.com') feedback@startbootstrap.com
+              a(href='mailto:your-email@your-domain.com') info@portfoliosite.com
     // jQuery
     script(src='js/jquery.js')
     // Bootstrap Core JavaScript

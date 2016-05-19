@@ -39,6 +39,16 @@ router.post('/', function(req, res, next) {
   //res.render('homepage', { title: 'Express' });
 });
 
+router.get('/', function(req, res, next){
+
+   if(req.session.username === "undefined" || req.session.userName == null){
+    res.render('homepage');
+  }
+  else{
+    res.redirect("/profilepage");
+  }
+});
+
 router.get('/welcome', function(req, res, next){
   res.render('welcome');
 });

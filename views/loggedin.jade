@@ -1,0 +1,238 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Creative - Start Bootstrap Theme
+    // Bootstrap Core CSS
+    link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
+    // Custom Fonts
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='font-awesome/css/font-awesome.min.css', type='text/css')
+    // Plugin CSS
+    link(rel='stylesheet', href='css/animate.min.css', type='text/css')
+    // Custom CSS
+    link(rel='stylesheet', href='css/creative.css', type='text/css')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body#page-top
+    nav#mainNav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.page-scroll(href='#page-top') Portfolio Site
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.page-scroll(href='#about') Login/Register
+            li
+              a.page-scroll(href='#services') Services
+            li
+              a.page-scroll(href='#portfolio') Examples
+            li
+              a.page-scroll(href='#contact') Contact
+        // /.navbar-collapse
+      // /.container-fluid
+      
+      //SECTION 1
+    header
+      .header-content
+        .header-content-inner
+          h1 Welcome to your portfolio builder
+          hr
+          p
+            | View and browse through portfolios or create your own personal one
+          a.btn.btn-primary.btn-xl.page-scroll(href='#about') Login/Register
+    section#about.bg-primary
+      .container
+        .row
+          .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
+            h2.section-heading Login
+            hr.light
+            p.text-faded
+              | Upload your work, or browse through other portfolios
+            .form-group
+                label.cols-sm-2.control-label(for='username') Username
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-users.fa(aria-hidden='true')
+                    input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+            .form-group
+              label.cols-sm-2.control-label(for='password') Password
+              .cols-sm-10
+                .input-group
+                  span.input-group-addon
+                    i.fa.fa-lock.fa-lg(aria-hidden='true')
+                  input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+            a.btn.btn-default.btn-xl(href='#') Get Started!
+          
+           .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
+              h2.section-heading Register
+              hr.light
+              p.text-faded
+                | Upload your work, or browse through other portfolios  
+              .form-group
+                label.cols-sm-2.control-label(for='name') Your Name
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-user.fa(aria-hidden='true')
+                    input#name.form-control(type='text', name='name', placeholder='Enter your Name')
+              .form-group
+                label.cols-sm-2.control-label(for='email') Your Email
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-envelope.fa(aria-hidden='true')
+                    input#email.form-control(type='text', name='email', placeholder='Enter your Email')
+              .form-group
+                label.cols-sm-2.control-label(for='username') Username
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-users.fa(aria-hidden='true')
+                    input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+              .form-group
+                label.cols-sm-2.control-label(for='password') Password
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-lock.fa-lg(aria-hidden='true')
+                    input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+              .form-group
+                label.cols-sm-2.control-label(for='confirm') Confirm Password
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-lock.fa-lg(aria-hidden='true')
+                    input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
+
+              a.btn.btn-default.btn-xl(href='#') Get Started!
+                    
+          
+            
+    section#services
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Your Portfolio Options
+            hr.primary
+      .container
+        .row
+          .col-lg-3.col-md-6.text-center
+            .service-box
+              i.fa.fa-4x.fa-camera.wow.bounceIn.text-primary
+              h3 Photographs
+              p.text-muted Show your photos in their best light.
+          .col-lg-3.col-md-6.text-center
+            .service-box
+              i.fa.fa-4x.fa-video-camera.wow.bounceIn.text-primary(data-wow-delay='.1s')
+              h3 Videos
+              p.text-muted Broadcast your videos to a wider audience.
+          .col-lg-3.col-md-6.text-center
+            .service-box
+              i.fa.fa-4x.fa-code.wow.bounceIn.text-primary(data-wow-delay='.2s')
+              h3 Repos
+              p.text-muted Include your favourite repositories in your portfolio.
+          .col-lg-3.col-md-6.text-center
+            .service-box
+              i.fa.fa-4x.fa-gamepad.wow.bounceIn.text-primary(data-wow-delay='.3s')
+              h3 SWFs
+              p.text-muted Embed your SWFs directly to your page.
+    section#portfolio.no-padding
+      .container-fluid
+        .row.no-gutter
+          .col-lg-4.col-sm-6
+            a.portfolio-box(href='#')
+              img.img-responsive(src='img/portfolio/1.jpg', alt='')
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    | Category
+                  .project-name
+                    | Project Name
+          .col-lg-4.col-sm-6
+            a.portfolio-box(href='#')
+              img.img-responsive(src='img/portfolio/2.jpg', alt='')
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    | Category
+                  .project-name
+                    | Project Name
+          .col-lg-4.col-sm-6
+            a.portfolio-box(href='#')
+              img.img-responsive(src='img/portfolio/3.jpg', alt='')
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    | Category
+                  .project-name
+                    | Project Name
+          .col-lg-4.col-sm-6
+            a.portfolio-box(href='#')
+              img.img-responsive(src='img/portfolio/4.jpg', alt='')
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    | Category
+                  .project-name
+                    | Project Name
+          .col-lg-4.col-sm-6
+            a.portfolio-box(href='#')
+              img.img-responsive(src='img/portfolio/5.jpg', alt='')
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    | Category
+                  .project-name
+                    | Project Name
+          .col-lg-4.col-sm-6
+            a.portfolio-box(href='#')
+              img.img-responsive(src='img/portfolio/6.jpg', alt='')
+              .portfolio-box-caption
+                .portfolio-box-caption-content
+                  .project-category.text-faded
+                    | Category
+                  .project-name
+                    | Project Name
+   
+    section#contact
+      .container
+        .row
+          .col-lg-8.col-lg-offset-2.text-center
+            h2.section-heading Need some tips?
+            hr.primary
+            p
+              | Contact Form?
+          .col-lg-4.col-lg-offset-2.text-center
+            i.fa.fa-phone.fa-3x.wow.bounceIn
+            p 123-456-6789
+          .col-lg-4.text-center
+            i.fa.fa-envelope-o.fa-3x.wow.bounceIn(data-wow-delay='.1s')
+            p
+              a(href='mailto:your-email@your-domain.com') info@portfoliosite.com
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')
+    // Plugin JavaScript
+    script(src='js/jquery.easing.min.js')
+    script(src='js/jquery.fittext.js')
+    script(src='js/wow.min.js')
+    // Custom Theme JavaScript
+    script(src='js/creative.js')

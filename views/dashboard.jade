@@ -1,0 +1,58 @@
+extends layout
+
+h1 Welcome to your dashboard #{username}
+br
+h2 Your portfolio URL is "portfoliosite.com/#{username}
+
+    .container
+        .row
+            .col-sm-12
+            h1 Change Password
+        .row
+            .col-sm-6.col-sm-offset-3
+            p.text-center
+                | Use the form below to change your password. Your password cannot be the same as your username.
+            form#passwordForm(method='post')
+                input#password1.input-lg.form-control(type='password', name='password1', placeholder='New Password', autocomplete='off')
+                .row
+                .col-sm-6
+                    span#8char.glyphicon.glyphicon-remove(style='color:#FF0004;')
+                    |  8 Characters Long
+                    br
+                    span#ucase.glyphicon.glyphicon-remove(style='color:#FF0004;')
+                    |  One Uppercase Letter
+                .col-sm-6
+                    span#lcase.glyphicon.glyphicon-remove(style='color:#FF0004;')
+                    |  One Lowercase Letter
+                    br
+                    span#num.glyphicon.glyphicon-remove(style='color:#FF0004;')
+                    |  One Number
+                input#password2.input-lg.form-control(type='password', name='password2', placeholder='Repeat Password', autocomplete='off')
+                .row
+                .col-sm-12
+                    span#pwmatch.glyphicon.glyphicon-remove(style='color:#FF0004;')
+                    |  Passwords Match
+
+
+        form(method='post', action='/edit')
+            i.fa.fa-pencil.fa(aria-hidden='true')
+                input#firstname.form-control(type='text', name='firstname', placeholder='Enter or Edit Your First Name')
+            i.fa.fa-pencil.fa(aria-hidden='true')
+                input#surname.form-control(type='text', name='surname', placeholder='Enter or Edit Your Surname')
+            i.fa.fa-pencil.fa(aria-hidden='true')
+                input#email.form-control(type='text', name='email', placeholder='Enter or Edit Your Email Address')
+            i.fa.fa-pencil.fa(aria-hidden='true')
+                input#phone.form-control(type='text', name='phonenumber', placeholder='Enter or Edit Your Phone Number')
+            i.fa.fa-pencil.fa(aria-hidden='true')
+                input#twitter.form-control(type='text', name='twitter', placeholder='Enter or Edit Your Twitter Handle')
+            i.fa.fa-pencil.fa(aria-hidden='true')
+                input#linkedin.form-control(type='text', name='linkedin', placeholder='Enter or Edit Your LinkedIn Url')
+                
+                
+      h3 Your Biography
+      
+      form(method='post', action ='/edit')
+        i.fa.fa-pencil.fa(aria-hidden='true')
+          input#bio.form-control(type='text', name='bio', placeholder='Enter or Edit Your Biography')
+           
+          

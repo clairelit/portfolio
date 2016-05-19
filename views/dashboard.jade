@@ -1,58 +1,101 @@
-extends layout
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Creative - Start Bootstrap Theme
+    // Bootstrap Core CSS
+    link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
+    // Custom Fonts
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='font-awesome/css/font-awesome.min.css', type='text/css')
+    // Plugin CSS
+    link(rel='stylesheet', href='css/animate.min.css', type='text/css')
+    // Custom CSS
+    link(rel='stylesheet', href='css/creative.css', type='text/css')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body#page-top
+    h1 Welcome to your dashboard 
+    br
+    h2 Your portfolio URL is "portfoliosite.com/
 
-h1 Welcome to your dashboard #{username}
-br
-h2 Your portfolio URL is "portfoliosite.com/#{username}
-
-    .container
+   .container
         .row
-            .col-sm-12
-            h1 Change Password
-        .row
-            .col-sm-6.col-sm-offset-3
-            p.text-center
-                | Use the form below to change your password. Your password cannot be the same as your username.
-            form#passwordForm(method='post')
-                input#password1.input-lg.form-control(type='password', name='password1', placeholder='New Password', autocomplete='off')
-                .row
-                .col-sm-6
-                    span#8char.glyphicon.glyphicon-remove(style='color:#FF0004;')
-                    |  8 Characters Long
-                    br
-                    span#ucase.glyphicon.glyphicon-remove(style='color:#FF0004;')
-                    |  One Uppercase Letter
-                .col-sm-6
-                    span#lcase.glyphicon.glyphicon-remove(style='color:#FF0004;')
-                    |  One Lowercase Letter
-                    br
-                    span#num.glyphicon.glyphicon-remove(style='color:#FF0004;')
-                    |  One Number
-                input#password2.input-lg.form-control(type='password', name='password2', placeholder='Repeat Password', autocomplete='off')
-                .row
-                .col-sm-12
-                    span#pwmatch.glyphicon.glyphicon-remove(style='color:#FF0004;')
-                    |  Passwords Match
+            .col-xs-12.col-sm-12.col-md-6.col-lg-6
+                form(method='post', action='/editFromDashboard')
+                    .form-group
+                    label.cols-sm-2.control-label(for='firstname') Firstname
+                    span First Name from DB
+                    .cols-sm-10
+                       .input-group
+                        span.input-group-addon
+                            i.fa.fa-save.fa-lg(aria-hidden='true')
+                        input#firstname.form-control(type='text', name='firstname', placeholder='Edit your Fist Name')
 
+                form(method='post', action='/editFromDashboard')
+                    br
+                    .form-group
+                    label.cols-sm-2.control-label(for='surname') Surname
+                    .cols-sm-10
+                       .input-group
+                        span.input-group-addon
+                            i.fa.fa-save.fa-lg(aria-hidden='true')
+                        input#surname.form-control(type='text', name='surname', placeholder='Edit your Surname')
 
-        form(method='post', action='/edit')
-            i.fa.fa-pencil.fa(aria-hidden='true')
-                input#firstname.form-control(type='text', name='firstname', placeholder='Enter or Edit Your First Name')
-            i.fa.fa-pencil.fa(aria-hidden='true')
-                input#surname.form-control(type='text', name='surname', placeholder='Enter or Edit Your Surname')
-            i.fa.fa-pencil.fa(aria-hidden='true')
-                input#email.form-control(type='text', name='email', placeholder='Enter or Edit Your Email Address')
-            i.fa.fa-pencil.fa(aria-hidden='true')
-                input#phone.form-control(type='text', name='phonenumber', placeholder='Enter or Edit Your Phone Number')
-            i.fa.fa-pencil.fa(aria-hidden='true')
-                input#twitter.form-control(type='text', name='twitter', placeholder='Enter or Edit Your Twitter Handle')
-            i.fa.fa-pencil.fa(aria-hidden='true')
-                input#linkedin.form-control(type='text', name='linkedin', placeholder='Enter or Edit Your LinkedIn Url')
-                
-                
-      h3 Your Biography
-      
-      form(method='post', action ='/edit')
-        i.fa.fa-pencil.fa(aria-hidden='true')
-          input#bio.form-control(type='text', name='bio', placeholder='Enter or Edit Your Biography')
-           
-          
+                form(method='post', action='/editFromDashboard')
+                    br
+                    .form-group
+                    label.cols-sm-2.control-label(for='email') Email
+                    .cols-sm-10
+                       .input-group
+                        span.input-group-addon
+                            i.fa.fa-save.fa-lg(aria-hidden='true')
+                        input#email.form-control(type='email', name='email', placeholder='Edit your Email')
+                        
+                form(method='post', action='/editFromDashboard')
+                    br
+                    .form-group
+                    label.cols-sm-2.control-label(for='phonenumber') Phone Number
+                    .cols-sm-10
+                       .input-group
+                        span.input-group-addon
+                            i.fa.fa-save.fa-lg(aria-hidden='true')
+                        input#phonenumber.form-control(type='tel', name='phonenumber', placeholder='Enter or Edit your Phone number')
+
+                form(method='post', action='/editFromDashboard')
+                    br
+                    .form-group
+                    label.cols-sm-2.control-label(for='twitter') Twitter
+                    .cols-sm-10
+                       .input-group
+                        span.input-group-addon
+                            i.fa.fa-save.fa-lg(aria-hidden='true')
+                        input#twitter.form-control(type='twitter', name='twitter', placeholder='Enter or Edit your Twitter Handle')
+
+                form(method='post', action='/editFromDashboard')
+                    br
+                    .form-group
+                    label.cols-sm-2.control-label(for='linkedIn') LinkedIn
+                    .cols-sm-10
+                       .input-group
+                        span.input-group-addon
+                            i.fa.fa-save.fa-lg(aria-hidden='true')
+                        input#linkedIn.form-control(type='linkedIn', name='linkedIn', placeholder='Enter or Edit your LinkedIn Details')
+                    
+                        
+                    br            
+                    h3 Your Biography
+                    
+                    form(method='post', action ='/editFromDashboard')
+                        i.fa.fa-pencil.fa(aria-hidden='true')
+                    input#bio.form-control(type='textarea', name='bio', placeholder='Enter or Edit Your Biography')
+                        
+                        

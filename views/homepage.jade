@@ -91,7 +91,14 @@ html(lang='en')
                   .input-group
                     span.input-group-addon
                       i.fa.fa-user.fa(aria-hidden='true')
-                    input#name.form-control(type='text', name='name', placeholder='Enter your Name')
+                    input#firstname.form-control(type='text', name='name', placeholder='Enter your First Name')
+               .form-group
+                label.cols-sm-2.control-label(for='name') Your Name
+                .cols-sm-10
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-user.fa(aria-hidden='true')
+                    input#surname.form-control(type='text', name='name', placeholder='Enter your Surname')
               .form-group
                 label.cols-sm-2.control-label(for='email') Your Email
                 .cols-sm-10

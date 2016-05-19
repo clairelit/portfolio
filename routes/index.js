@@ -1,43 +1,76 @@
 var express = require('express');
 var router = express.Router();
-var bodyParset = require('body-parser');
+var bodyParser = require('body-parser');
 
 var mongoClient = require('mongodb').MongoClient;
+var monk = require('monk');
 
+var db = monk('mongodb://localhost:27017/portfoliodb');
 
-var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
+//var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
+var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/portfoliodb';
 
 
 
 /* GET home page. */
-router.post('/', function(req, res, next) {
+router.post('/register', function(req, res, next) {
   var db = req.db;
   var firstname = req.body.firstname;
   var surname = req.body.surname;
   var username = req.body.username;
   var email = req.body.email;
   var password = req.body.password;
+  var confirm = req.body.confirm;
   
   var collection=db.get('userTable');
   
   collection.insert({
-    "firstname": username,
-    "surname": firstname,
+    "firstname": firstname,
+    "surname": surname,
     "username": username,
     "email": email,
-    "password": password
+    "password": password,
+    "confirm": confirm
   }, function(err, doc){
     if(err){
       res.send("Problem adding info to the Database");
+      console.log(doc);
     }
     else{
-     req.session.userName = username;
+     req.session.username = username;
      console.log(req.session.username);
-     res.redirect('/');
+     res.redirect('/dashboard');
     }
   });
   //res.render('homepage', { title: 'Express' });
 });
+
+
+
+router.post('/login', function(req, res, next){
+  var enteredUserName = req.body.username;
+  //console.log(enteredUserName);
+  //console.log(req.body.userName);
+  var enteredPassword = req.body.password;
+  var db = req.db;
+  var collection = db.get('userTable');
+  collection.find({username: enteredUserName},{},function(e, docs){
+    for(var i in docs){
+      if(docs[i].password == enteredPassword){
+        var userName = req.body.username;
+        req.session.userName = username;
+        res.redirect('/dashboard');
+      }
+      else{
+        res.render('wronglogin');
+      }
+    }
+});
+});
+
+
+
+
 
 router.get('/', function(req, res, next){
 

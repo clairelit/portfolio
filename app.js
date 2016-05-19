@@ -11,11 +11,23 @@ var routes = require('./routes/index');
 var mongo = require('mongodb');
 var monk = require('monk');
 //var db = monk('mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb');
-
+var mongoClient = require('mongodb').MongoClient;
 var db = monk('mongodb://localhost:27017/portfoliodb');
 // If I am running locally then use 'mongodb://localhost:27017/test' otherwise
 // look for the environment variable
-var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
+//var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
+var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/portfoliodb';
+
+mongoClient.connect(url, function(err, conn) {
+        if(err){
+            console.log(err.message);
+            throw err;
+        } else {
+            console.log("Connected to DB");
+            conn.close();
+        }
+});
+
 
 /*
  * Requiring the following package to be able to use sessions.

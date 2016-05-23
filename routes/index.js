@@ -42,15 +42,14 @@ router.post('/register', function(req, res, next) {
      res.redirect('/dashboard');
     }
   });
-  //res.render('homepage', { title: 'Express' });
 });
 
 
 
 router.post('/login', function(req, res, next){
   var enteredUserName = req.body.username;
-  //console.log(enteredUserName);
-  //console.log(req.body.userName);
+  console.log(enteredUserName);
+  console.log(req.body.userName);
   var enteredPassword = req.body.password;
   var db = req.db;
   var collection = db.get('userTable');
@@ -87,7 +86,16 @@ router.get('/welcome', function(req, res, next){
 });
 
 router.get('/dashboard', function(req, res, next){
-  res.render('dashboard');
+  var loggedInUser = req.session.username;
+  //var db=req.db;
+  var collection=db.get('userTable');
+  var personDetails = collection.find({ username: loggedInUser }, function (err, doc) {
+    if (err) throw err;
+    else{
+      res.render('dashboard', {userDetails: doc});
+      console.log(doc);
+    }
+}); 
 });
 
 

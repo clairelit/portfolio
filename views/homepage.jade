@@ -61,7 +61,8 @@ html(lang='en')
           .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
             h2.section-heading Login
             hr.light
-            p.text-faded Upload your work, or browse through other portfolios
+            p.text-faded 
+            form(method='post', action='login') Upload your work, or browse through other portfolios
             .form-group
               label.cols-sm-2.control-label(for='username') Username
               .cols-sm-10
@@ -77,6 +78,8 @@ html(lang='en')
                     i.fa.fa-lock.fa-lg(aria-hidden='true')
                   input#password.form-control(type='password', name='password', placeholder='Enter your Password')
             a.btn.btn-default.btn-xl(href='#') Get Started!
+            
+            
           .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
             h2.section-heading Register
             hr.light

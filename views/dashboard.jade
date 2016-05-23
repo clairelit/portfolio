@@ -26,76 +26,186 @@ html(lang='en')
     h1 Welcome to your dashboard 
     br
     h2 Your portfolio URL is "portfoliosite.com/
+   
+   for user, i in userDetails
+    
+                .col-xs-12.col-sm-12.col-md-6.col-lg-6
+                    form(method='post', action='/editFromDashboard')
+                        .form-group
+                        label.cols-sm-2.control-label(for='firstname') Firstname: &nbsp;
+                        span #{user.firstname}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#firstname.form-control(type='text', name='firstname', placeholder='Edit your Fist Name')
 
-   .container
-        .row
-            .col-xs-12.col-sm-12.col-md-6.col-lg-6
-                form(method='post', action='/editFromDashboard')
-                    .form-group
-                    label.cols-sm-2.control-label(for='firstname') Firstname
-                    span First Name from DB
-                    .cols-sm-10
-                       .input-group
-                        span.input-group-addon
-                            i.fa.fa-save.fa-lg(aria-hidden='true')
-                        input#firstname.form-control(type='text', name='firstname', placeholder='Edit your Fist Name')
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='surname') Surname: &nbsp;
+                        span #{user.surname}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#surname.form-control(type='text', name='surname', placeholder='Edit your Surname')
 
-                form(method='post', action='/editFromDashboard')
-                    br
-                    .form-group
-                    label.cols-sm-2.control-label(for='surname') Surname
-                    .cols-sm-10
-                       .input-group
-                        span.input-group-addon
-                            i.fa.fa-save.fa-lg(aria-hidden='true')
-                        input#surname.form-control(type='text', name='surname', placeholder='Edit your Surname')
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='email') Email: &nbsp;
+                        span #{user.email}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#email.form-control(type='email', name='email', placeholder='Edit your Email')
+                            
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='phonenumber') Phone Number: &nbsp;
+                        span #{user.phonenumber}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#phonenumber.form-control(type='tel', name='phonenumber', placeholder='Enter or Edit your Phone number')
 
-                form(method='post', action='/editFromDashboard')
-                    br
-                    .form-group
-                    label.cols-sm-2.control-label(for='email') Email
-                    .cols-sm-10
-                       .input-group
-                        span.input-group-addon
-                            i.fa.fa-save.fa-lg(aria-hidden='true')
-                        input#email.form-control(type='email', name='email', placeholder='Edit your Email')
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='twitter') Twitter: &nbsp;
+                        span #{user.twitter}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#twitter.form-control(type='twitter', name='twitter', placeholder='Enter or Edit your Twitter Handle')
+
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='linkedin') LinkedIn: &nbsp;
+                        span #{user.linkedin}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#linkedIn.form-control(type='linkedin', name='linkedin', placeholder='Enter or Edit your LinkedIn Details')
                         
-                form(method='post', action='/editFromDashboard')
-                    br
-                    .form-group
-                    label.cols-sm-2.control-label(for='phonenumber') Phone Number
-                    .cols-sm-10
-                       .input-group
-                        span.input-group-addon
-                            i.fa.fa-save.fa-lg(aria-hidden='true')
-                        input#phonenumber.form-control(type='tel', name='phonenumber', placeholder='Enter or Edit your Phone number')
-
-                form(method='post', action='/editFromDashboard')
-                    br
-                    .form-group
-                    label.cols-sm-2.control-label(for='twitter') Twitter
-                    .cols-sm-10
-                       .input-group
-                        span.input-group-addon
-                            i.fa.fa-save.fa-lg(aria-hidden='true')
-                        input#twitter.form-control(type='twitter', name='twitter', placeholder='Enter or Edit your Twitter Handle')
-
-                form(method='post', action='/editFromDashboard')
-                    br
-                    .form-group
-                    label.cols-sm-2.control-label(for='linkedIn') LinkedIn
-                    .cols-sm-10
-                       .input-group
-                        span.input-group-addon
-                            i.fa.fa-save.fa-lg(aria-hidden='true')
-                        input#linkedIn.form-control(type='linkedIn', name='linkedIn', placeholder='Enter or Edit your LinkedIn Details')
-                    
+                            
+                        br            
+                        h3 Your Biography
                         
-                    br            
-                    h3 Your Biography
-                    
-                    form(method='post', action ='/editFromDashboard')
-                        i.fa.fa-pencil.fa(aria-hidden='true')
-                    input#bio.form-control(type='textarea', name='bio', placeholder='Enter or Edit Your Biography')
+                        form(method='post', action ='/editFromDashboard')
+                           button(type='submit')
+                            i.fa.fa-save.fa(aria-hidden='true')
+                        if user.bio
+                            textarea#bio.form-control(type='textarea', name='bio', value='#{user.bio}')
+                        else
+                            textarea#bio.form-control(name='bio', onfocus="this.value=''", value='Add your biography here')  
+                        br
+                        br
+                        br
+                        br
+                        br
+for user, i in userDetails
+    
+                .col-xs-12.col-sm-12.col-md-6.col-lg-6
+                    form(method='post', action='/editFromDashboard')
+                        .form-group
+                        label.cols-sm-2.control-label(for='firstname') Firstname: &nbsp;
+                        span #{user.firstname}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#firstname.form-control(type='text', name='firstname', placeholder='Edit your Fist Name')
+
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='surname') Surname: &nbsp;
+                        span #{user.surname}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#surname.form-control(type='text', name='surname', placeholder='Edit your Surname')
+
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='email') Email: &nbsp;
+                        span #{user.email}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#email.form-control(type='email', name='email', placeholder='Edit your Email')
+                            
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='phonenumber') Phone Number: &nbsp;
+                        span #{user.phonenumber}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#phonenumber.form-control(type='tel', name='phonenumber', placeholder='Enter or Edit your Phone number')
+
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='twitter') Twitter: &nbsp;
+                        span #{user.twitter}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#twitter.form-control(type='twitter', name='twitter', placeholder='Enter or Edit your Twitter Handle')
+
+                    form(method='post', action='/editFromDashboard')
+                        br
+                        .form-group
+                        label.cols-sm-2.control-label(for='linkedin') LinkedIn: &nbsp;
+                        span #{user.linkedin}
+                        .cols-sm-5
+                        .input-group
+                            span.input-group-addon
+                               button(type='submit')
+                                i.fa.fa-save.fa-lg(aria-hidden='true')
+                            input#linkedIn.form-control(type='linkedin', name='linkedin', placeholder='Enter or Edit your LinkedIn Details')
+                        
+                            
+                        br            
+                        h3 Your Biography
+                        
+                        form(method='post', action ='/editFromDashboard')
+                           button(type='submit')
+                            i.fa.fa-save.fa(aria-hidden='true')
+                        if user.bio
+                            textarea#bio.form-control(type='textarea', name='bio', value='#{user.bio}')
+                        else
+                            textarea#bio.form-control(name='bio', onfocus="this.value=''", value='Add your biography here')  
+                        br
+                        br
+                        br
+                        br
+                        br                  
                         
                         

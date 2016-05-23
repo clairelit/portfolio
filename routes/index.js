@@ -34,7 +34,7 @@ router.post('/register', function(req, res, next) {
   }, function(err, doc){
     if(err){
       res.send("Problem adding info to the Database");
-      console.log(doc);
+      console.log(err.message);
     }
     else{
      req.session.username = username;

@@ -103,19 +103,21 @@ block content
                         i.fa.fa-envelope.fa(aria-hidden='true')
                       input#email.form-control(type='text', name='email', placeholder='Enter your Email')
                 .form-group
-                  label.cols-sm-2.control-label(for='password') Password
+                  label.cols-sm-2.control-label(for='pass1') Password
                   .cols-sm-10
                     .input-group
                       span.input-group-addon
                         i.fa.fa-lock.fa-lg(aria-hidden='true')
-                      input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+                      input#pass1.form-control(type='password', name='password', placeholder='Enter your Password')
                 .form-group
-                  label.cols-sm-2.control-label(for='confirm') Confirm Password
+                  label.cols-sm-2.control-label(for='pass2') Confirm Password: &nbsp;
+                  span#confirmMessage.confirmMessage
                   .cols-sm-10
                     .input-group
                       span.input-group-addon
                         i.fa.fa-lock.fa-lg(aria-hidden='true')
-                      input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
+                      input#pass2.form-control(type='password', name='confirm', placeholder='Confirm your Password', onkeyup="checkPass(); return false;")
+                      
                   button.btn.btn-default.btn-xl(type='submit') Register
     section#services
       .container

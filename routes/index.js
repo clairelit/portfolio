@@ -45,6 +45,101 @@ router.post('/register', function(req, res, next) {
 });
 
 
+//First Name Edit
+router.get('/editFirstNameFromDashboard', function(req, res, next){
+  
+  var currentUser = req.session.username;
+  var newFirstName = req.query.firstname;
+  var db = req.db;
+  var collection = db.get('userTable');
+  collection.findAndModify({username: currentUser}, {$set: {firstname: newFirstName}}), function(){
+            console.log("Successful Update");  
+  };
+  res.redirect('/dashboard');
+});
+
+
+//Surname Edit
+router.get('/editSurnameFromDashboard', function(req, res, next){
+  
+  var currentUser = req.session.username;
+  var newSurName = req.query.surname;
+  var db = req.db;
+  var collection = db.get('userTable');
+  collection.findAndModify({username: currentUser}, {$set: {surname: newSurName}}), function(){
+            console.log("Successful Update");  
+  };
+  res.redirect('/dashboard');
+});
+
+
+//Email Edit
+router.get('/editEmailFromDashboard', function(req, res, next){
+  var currentUser = req.session.username;
+  var newEmail = req.query.email;
+  var db = req.db;
+  var collection = db.get('userTable');
+  collection.findAndModify({username: currentUser}, {$set: {email: newEmail}}), function(){
+            console.log("Successful Update");  
+  };
+  res.redirect('/dashboard');
+});
+
+
+//Phone Number Edit
+router.get('/editPhoneNumberFromDashboard', function(req, res, next){
+  
+  var currentUser = req.session.username;
+  var newPhoneNumber = req.query.phonenumber;
+  var db = req.db;
+  var collection = db.get('userTable');
+  collection.findAndModify({username: currentUser}, {$set: {phonenumber: newPhoneNumber}}), function(){
+            console.log("Successful Update");  
+  };
+  res.redirect('/dashboard');
+});
+
+//Twitter Handle Edit
+router.get('/editTwitterFromDashboard', function(req, res, next){
+  
+  var currentUser = req.session.username;
+  var newTwitter = req.query.twitter;
+  var db = req.db;
+  var collection = db.get('userTable');
+  collection.findAndModify({username: currentUser}, {$set: {twitter: newTwitter}}), function(){
+            console.log("Successful Update");  
+  };
+  res.redirect('/dashboard');
+});
+
+
+
+//New Linkedin Details
+router.get('/editLinkedinFromDashboard', function(req, res, next){
+  
+  var currentUser = req.session.username;
+  var newLinkedIn = req.query.linkedin;
+  var db = req.db;
+  var collection = db.get('userTable');
+  collection.findAndModify({username: currentUser}, {$set: {linkedin: newLinkedIn}}), function(){
+            console.log("Successful Update");  
+  };
+  res.redirect('/dashboard');
+});
+
+
+//Biography Edit
+router.get('/editBioFromDashboard', function(req, res, next){
+  
+  var currentUser = req.session.username;
+  var newBio = req.query.bio;
+  var db = req.db;
+  var collection = db.get('userTable');
+  collection.findAndModify({username: currentUser}, {$set: {bio: newBio}}), function(){
+            console.log("Successful Update");  
+  };
+  res.redirect('/dashboard');
+}); 
 
 router.post('/login', function(req, res, next){
   
@@ -83,8 +178,7 @@ router.get('/profilepage', function (req, res, next) {
       res.render('profilepage', {userDetails: doc});
       console.log(doc);
     }
-});
-  
+});  
 });
 
 

@@ -36,7 +36,7 @@ html(lang='en')
    for user, i in userDetails
     
                 .col-xs-12.col-sm-12.col-md-6.col-lg-6
-                    form(method='post', action='/editFromDashboard')
+                    form(method='get', action='/editFirstNameFromDashboard')
                         .form-group
                         label.cols-sm-2.control-label(for='firstname') Firstname: &nbsp;
                         span #{user.firstname}
@@ -45,9 +45,9 @@ html(lang='en')
                             span.input-group-addon
                                button(type='submit')
                                 i.fa.fa-save.fa-lg(aria-hidden='true')
-                            input#firstname.form-control(type='text', name='firstname', placeholder='Edit your Fist Name')
+                            input#firstname.form-control(type='text', name='firstname', placeholder='Edit your First Name')
 
-                    form(method='post', action='/editFromDashboard')
+                    form(method='get', action='/editSurnameFromDashboard')
                         br
                         .form-group
                         label.cols-sm-2.control-label(for='surname') Surname: &nbsp;
@@ -59,7 +59,7 @@ html(lang='en')
                                 i.fa.fa-save.fa-lg(aria-hidden='true')
                             input#surname.form-control(type='text', name='surname', placeholder='Edit your Surname')
 
-                    form(method='post', action='/editFromDashboard')
+                    form(method='get', action='/editEmailFromDashboard')
                         br
                         .form-group
                         label.cols-sm-2.control-label(for='email') Email: &nbsp;
@@ -71,7 +71,7 @@ html(lang='en')
                                 i.fa.fa-save.fa-lg(aria-hidden='true')
                             input#email.form-control(type='email', name='email', placeholder='Edit your Email')
                             
-                    form(method='post', action='/editFromDashboard')
+                    form(method='get', action='/editPhoneNumberFromDashboard')
                         br
                         .form-group
                         label.cols-sm-2.control-label(for='phonenumber') Phone Number: &nbsp;
@@ -83,7 +83,7 @@ html(lang='en')
                                 i.fa.fa-save.fa-lg(aria-hidden='true')
                             input#phonenumber.form-control(type='tel', name='phonenumber', placeholder='Enter or Edit your Phone number')
 
-                    form(method='post', action='/editFromDashboard')
+                    form(method='get', action='/editTwitterFromDashboard')
                         br
                         .form-group
                         label.cols-sm-2.control-label(for='twitter') Twitter: &nbsp;
@@ -93,9 +93,9 @@ html(lang='en')
                             span.input-group-addon
                                button(type='submit')
                                 i.fa.fa-save.fa-lg(aria-hidden='true')
-                            input#twitter.form-control(type='twitter', name='twitter', placeholder='Enter or Edit your Twitter Handle')
+                            input#twitter.form-control(type='twitter', name='twitter', placeholder='Enter or Edit your Twitter Handle without the "@" symbol')
 
-                    form(method='post', action='/editFromDashboard')
+                    form(method='get', action='/editLinkedinFromDashboard')
                         br
                         .form-group
                         label.cols-sm-2.control-label(for='linkedin') LinkedIn: &nbsp;
@@ -105,19 +105,20 @@ html(lang='en')
                             span.input-group-addon
                                button(type='submit')
                                 i.fa.fa-save.fa-lg(aria-hidden='true')
-                            input#linkedIn.form-control(type='linkedin', name='linkedin', placeholder='Enter or Edit your LinkedIn Details')
+                            input#linkedIn.form-control(type='linkedin', name='linkedin', placeholder='Enter or Edit your full LinkedIn URL')
                         
                             
-                        br            
-                        h3 Your Biography
-                        
-                        form(method='post', action ='/editFromDashboard')
-                           button(type='submit')
+                    br            
+                    h3 Your Biography
+                    
+                    form(method='get', action ='/editBioFromDashboard')
+                        button(type='submit')
                             i.fa.fa-save.fa(aria-hidden='true')
                         if user.bio
-                            textarea#bio.form-control(type='textarea', name='bio', value='#{user.bio}')
+                            textarea#bio.form-control(type='textarea', name='bio')  #{user.bio}
+                               
                         else
-                            textarea#bio.form-control(name='bio', onfocus="this.value=''", value='Add your biography here')  
+                            textarea#bio.form-control(name='bio', onfocus="this.value=''", placeholder='Add your biography here')  
                         br
                         br
                         br

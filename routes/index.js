@@ -10,39 +10,61 @@ var db = monk('mongodb://localhost:27017/portfoliodb');
 //var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
 var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/portfoliodb';
 
+/*router.get('/delete', function(req, res, next){
+  var db=req.db;
+  var collection=db.get('userTable');
+  
+  collection.remove({firstname: 'Mark'});
+  
+  res.send('That Worked');
+});*/
 
+router.get('/invalidusername', function(req, res, next){
+  res.render('invalidusername');
+});
 
 /* GET home page. */
 router.post('/register', function(req, res, next) {
-  var db = req.db;
-  var firstname = req.body.firstname;
-  var surname = req.body.surname;
-  var username = req.body.username;
-  var email = req.body.email;
-  var password = req.body.password;
-  var confirm = req.body.confirm;
-  
-  var collection=db.get('userTable');
-  
-  collection.insert({
-    "firstname": firstname,
-    "surname": surname,
-    "username": username,
-    "email": email,
-    "password": password,
-    "confirm": confirm
-  }, function(err, doc){
-    if(err){
-      res.send("Problem adding info to the Database");
-      console.log(err.message);
-    }
-    else{
-     req.session.username = username;
-     console.log(req.session.username);
-     res.redirect('/dashboard');
-    }
-  });
-});
+var db = req.db;
+
+var enteredUsername = req.body.username;
+var collection = db.get('userTable');
+
+collection.find({
+        username: enteredUsername
+    }, function(e, docs) {
+      if (e) throw e;
+      else
+          if (docs.length>=1) {
+              res.redirect('/invalidusername#about');
+          } else{
+            var firstname = req.body.firstname;
+            var surname = req.body.surname;
+            var username = req.body.username;
+            var email = req.body.email;
+            var password = req.body.password;
+            var confirm = req.body.confirm;
+
+            collection.insert({
+                    "firstname": firstname,
+                    "surname": surname,
+                    "username": username,
+                    "email": email,
+                    "password": password,
+                    "confirm": confirm
+                }, function(err, doc) {
+                    if (err) {
+                        res.send("Problem adding info to the Database");
+                        console.log(err.message);
+                    } else{
+                    req.session.username = username;
+                    console.log(req.session.username);
+                    res.redirect('/dashboard');
+                    };
+                });};
+            });
+    
+    });
 
 
 //First Name Edit
@@ -150,6 +172,7 @@ router.post('/login', function(req, res, next){
   var db = req.db;
   
   var collection = db.get('userTable');
+    
   var userDetails = collection.find({username: enteredUserName},function(e, doc){
     for(var i in doc){
       if(doc[i].password == enteredPassword){

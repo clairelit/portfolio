@@ -47,33 +47,43 @@ router.post('/register', function(req, res, next) {
 
 
 router.post('/login', function(req, res, next){
+  
   var enteredUserName = req.body.username;
-  console.log(enteredUserName);
-  console.log(req.body.userName);
+  console.log("I got into the route");
   var enteredPassword = req.body.password;
+  
   var db = req.db;
+  
   var collection = db.get('userTable');
-  collection.find({username: enteredUserName},{},function(e, docs){
-    for(var i in docs){
-      if(docs[i].password == enteredPassword){
-        var userName = req.body.username;
-        req.session.userName = username;
+  var userDetails = collection.find({username: enteredUserName},function(e, doc){
+    for(var i in doc){
+      if(doc[i].password == enteredPassword){
+        var username = req.body.username;
+        req.session.username = username;
         res.redirect('/dashboard');
       }
       else{
-        res.render('wronglogin');
+        res.redirect('/wronglogin#about');
       }
     }
 });
 });
 
+router.get('/wronglogin', function(req, res, next){
+  res.render('wronglogin');
+});
 
+router.get('/profilepage', function (req, res, next) {
+  res.render('profilepage');
+});
 
-
+router.get('/homepage', function(req, res, next){
+  res.render('homepage');
+});
 
 router.get('/', function(req, res, next){
 
-   if(req.session.username === "undefined" || req.session.userName == null){
+   if(req.session.username === "undefined" || req.session.username == null){
     res.render('homepage');
   }
   else{
@@ -81,13 +91,16 @@ router.get('/', function(req, res, next){
   }
 });
 
-router.get('/welcome', function(req, res, next){
+/*router.get('/welcome', function(req, res, next){
   res.render('welcome');
-});
+});*/
 
 router.get('/dashboard', function(req, res, next){
+  if(req.session.username === "undefined" || req.session.username == null){
+    res.redirect('/homepage#about');
+  }else{
   var loggedInUser = req.session.username;
-  //var db=req.db;
+  var db=req.db;
   var collection=db.get('userTable');
   var personDetails = collection.find({ username: loggedInUser }, function (err, doc) {
     if (err) throw err;
@@ -95,13 +108,15 @@ router.get('/dashboard', function(req, res, next){
       res.render('dashboard', {userDetails: doc});
       console.log(doc);
     }
-}); 
+});
+} 
 });
 
 
-router.get('/myPortfolio', function(req, res, next){
+/*router.get('/myPortfolio', function(req, res, next){
   var yourName = req.query.yourName;
   req.session.userName =yourName;
   res.render('Hello', {usersName: yourName});
-});
+});*/
+
 module.exports = router;

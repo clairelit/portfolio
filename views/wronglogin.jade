@@ -56,64 +56,24 @@ html(lang='en')
           p
             | View and browse through portfolios or create your own personal one
           a.btn.btn-primary.btn-xl.page-scroll(href='#about') Login/Register
+    a(name='#about')
     section#about.bg-primary
       .container
         .row
           .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
             h2.section-heading Login
-            h6 Oops! Looks like you're having problems logging in.
+            h2 Oops! Looks like you're having problems logging in.
             hr.light
             p.text-faded
               | Upload your work, or browse through other portfolios
-            .form-group
-                label.cols-sm-2.control-label(for='username') Username
-                .cols-sm-10
-                  .input-group
-                    span.input-group-addon
-                      i.fa.fa-users.fa(aria-hidden='true')
-                    input#username.form-control(type='text', name='username', placeholder='Enter your Username')
-            .form-group
-              label.cols-sm-2.control-label(for='password') Password
-              .cols-sm-10
-                .input-group
-                  span.input-group-addon
-                    i.fa.fa-lock.fa-lg(aria-hidden='true')
-                  input#password.form-control(type='password', name='password', placeholder='Enter your Password')
-            a.btn.btn-default.btn-xl(href='#') Get Started!
-          
-           .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
-              h2.section-heading Register
-              hr.light
-              p.text-faded
-                | Upload your work, or browse through other portfolios  
+            form(method='post', action='/login')
               .form-group
-                label.cols-sm-2.control-label(for='name') Your Name
-                .cols-sm-10
-                  .input-group
-                    span.input-group-addon
-                      i.fa.fa-user.fa(aria-hidden='true')
-                    input#firstname.form-control(type='text', name='name', placeholder='Enter your First Name')
-               .form-group
-                label.cols-sm-2.control-label(for='name') Your Name
-                .cols-sm-10
-                  .input-group
-                    span.input-group-addon
-                      i.fa.fa-user.fa(aria-hidden='true')
-                    input#surname.form-control(type='text', name='name', placeholder='Enter your Surname')
-              .form-group
-                label.cols-sm-2.control-label(for='email') Your Email
-                .cols-sm-10
-                  .input-group
-                    span.input-group-addon
-                      i.fa.fa-envelope.fa(aria-hidden='true')
-                    input#email.form-control(type='text', name='email', placeholder='Enter your Email')
-              .form-group
-                label.cols-sm-2.control-label(for='username') Username
-                .cols-sm-10
-                  .input-group
-                    span.input-group-addon
-                      i.fa.fa-users.fa(aria-hidden='true')
-                    input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+                  label.cols-sm-2.control-label(for='username') Username
+                  .cols-sm-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-users.fa(aria-hidden='true')
+                      input#username.form-control(type='text', name='username', placeholder='Enter your Username')
               .form-group
                 label.cols-sm-2.control-label(for='password') Password
                 .cols-sm-10
@@ -121,15 +81,58 @@ html(lang='en')
                     span.input-group-addon
                       i.fa.fa-lock.fa-lg(aria-hidden='true')
                     input#password.form-control(type='password', name='password', placeholder='Enter your Password')
-              .form-group
-                label.cols-sm-2.control-label(for='confirm') Confirm Password
-                .cols-sm-10
-                  .input-group
-                    span.input-group-addon
-                      i.fa.fa-lock.fa-lg(aria-hidden='true')
-                    input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
+              button.btn.btn-default.btn-xl(type='submit') Login
+          
+           .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
+              h2.section-heading Register
+              hr.light
+              p.text-faded
+                | Upload your work, or browse through other portfolios
+              form(method='post', action='/login')  
+                .form-group
+                  label.cols-sm-2.control-label(for='name') Your Name
+                  .cols-sm-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-user.fa(aria-hidden='true')
+                      input#firstname.form-control(type='text', name='name', placeholder='Enter your First Name')
+                .form-group
+                  label.cols-sm-2.control-label(for='name') Your Name
+                  .cols-sm-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-user.fa(aria-hidden='true')
+                      input#surname.form-control(type='text', name='name', placeholder='Enter your Surname')
+                .form-group
+                  label.cols-sm-2.control-label(for='email') Your Email
+                  .cols-sm-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-envelope.fa(aria-hidden='true')
+                      input#email.form-control(type='text', name='email', placeholder='Enter your Email')
+                .form-group
+                  label.cols-sm-2.control-label(for='username') Username
+                  .cols-sm-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-users.fa(aria-hidden='true')
+                      input#username.form-control(type='text', name='username', placeholder='Enter your Username')
+                .form-group
+                  label.cols-sm-2.control-label(for='password') Password
+                  .cols-sm-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-lock.fa-lg(aria-hidden='true')
+                      input#password.form-control(type='password', name='password', placeholder='Enter your Password')
+                .form-group
+                  label.cols-sm-2.control-label(for='confirm') Confirm Password
+                  .cols-sm-10
+                    .input-group
+                      span.input-group-addon
+                        i.fa.fa-lock.fa-lg(aria-hidden='true')
+                      input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
 
-              a.btn.btn-default.btn-xl(href='#') Get Started!
+                button.btn.btn-default.btn-xl(href='#') Register
                     
           
             

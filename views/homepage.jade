@@ -55,6 +55,7 @@ html(lang='en')
           hr
           p View and browse through portfolios or create your own personal one
           a.btn.btn-primary.btn-xl.page-scroll(href='#about') Login/Register
+    a(name='#about')
     section#about.bg-primary
       .container
         .row
@@ -62,7 +63,7 @@ html(lang='en')
             h2.section-heading Login
             hr.light
             p.text-faded 
-            form(method='post', action='login') Upload your work, or browse through other portfolios
+           form(method='post', action='login') Upload your work, or browse through other portfolios
             .form-group
               label.cols-sm-2.control-label(for='username') Username
               .cols-sm-10
@@ -77,7 +78,8 @@ html(lang='en')
                   span.input-group-addon
                     i.fa.fa-lock.fa-lg(aria-hidden='true')
                   input#password.form-control(type='password', name='password', placeholder='Enter your Password')
-            a.btn.btn-default.btn-xl(href='#') Get Started!
+                button.btn.btn-default.btn-xl(type='submit') Get Started!
+            
             
             
           .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center

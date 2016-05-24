@@ -173,9 +173,19 @@ router.post('/login', function(req, res, next){
   
   var collection = db.get('userTable');
     
-  var userDetails = collection.find({username: enteredUserName},function(e, doc){
-    for(var i in doc){
-      if(doc[i].password == enteredPassword){
+  var userDetails = collection.find({username: enteredUserName},function(err, docs){
+    
+      if(docs.length == 0){
+        console.log('No Documents');
+        res.redirect('/wronglogin#about');
+      }
+      else{
+        console.log("Login successful");
+        console.log(docs.length);
+      }
+    
+      for(var i in docs){
+      if(docs[i].password == enteredPassword){
         var username = req.body.username;
         req.session.username = username;
         res.redirect('/dashboard');
@@ -184,6 +194,7 @@ router.post('/login', function(req, res, next){
         res.redirect('/wronglogin#about');
       }
     }
+    
 });
 });
 

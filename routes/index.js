@@ -74,7 +74,24 @@ router.get('/wronglogin', function(req, res, next){
 });
 
 router.get('/profilepage', function (req, res, next) {
-  res.render('profilepage');
+  var loggedInUser = req.session.username;
+  var db=req.db;
+  var collection=db.get('userTable');
+  var personDetails = collection.find({ username: loggedInUser }, function (err, doc) {
+    if (err) throw err;
+    else{
+      res.render('profilepage', {userDetails: doc});
+      console.log(doc);
+    }
+});
+  
+});
+
+
+router.get('/logout', function(req, res, next){
+  req.session.destroy(function(err) {
+  res.redirect('/homepage');
+});
 });
 
 router.get('/homepage', function(req, res, next){

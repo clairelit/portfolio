@@ -6,7 +6,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='')
-    title Creative - Start Bootstrap Theme
+    title Creative - Portfolio Website
     // Bootstrap Core CSS
     link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
     // Custom Fonts
@@ -17,16 +17,22 @@ html(lang='en')
     link(rel='stylesheet', href='css/animate.min.css', type='text/css')
     // Custom CSS
     link(rel='stylesheet', href='css/creative.css', type='text/css')
+    link(rel='stylesheet', href='stylesheets/style.css', type='text/css')
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
   body#page-top
-    h1 Welcome to your dashboard 
-    br
-    h2 Your portfolio URL is "portfoliosite.com/
-   
+    .container
+        .col-xs-12.col-sm-12.col-md-6.col-lg-6
+            h1 Welcome to your dashboard 
+            br
+            h2 Your portfolio URL is "portfoliosite.com/
+        .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
+            a.btn.btn-warning.btn-xl.text-center(href='profilepage') My Profile
+            a.btn.btn-warning.btn-xl.text-center(href='logout') Logout
+    
    for user, i in userDetails
     
                 .col-xs-12.col-sm-12.col-md-6.col-lg-6

@@ -1,16 +1,4 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.btn-warning{
+  margin-top: 15%;
 }
-
-a {
-  color: #00B7FF;
-}
-
-/*label {
-    width:180px;
-    clear:left;
-    text-align:right;
-    padding-right:10px;
-}*/
-

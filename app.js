@@ -5,10 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var fs = require ('fs');
+//var files = require('./routes/index.js');
+//var upload = multer({ dest: './uploads' });
 var routes = require('./routes/index');
 //var users = require('./routes/users');
 
-var files = require('./routes/index');
+//var files = require('./routes/index');
 
 var mongo = require('mongodb');
 var monk = require('monk');
@@ -63,6 +66,10 @@ var expressSessionOptions = {
 //session middleware - has to be used
 app.use(session(expressSessionOptions));
 
+/*app.use(multer({
+  dest: path.join(__dirname, 'public/upload/temp')
+}).any());
+
 var multerOptions={
     dest:'./public/uploads/',
     rename: function(fieldname, filename){
@@ -70,21 +77,21 @@ var multerOptions={
     }    
 }
     
-app.use('/file/', multer(multerOptions));
+app.use('/file/', multer(multerOptions));*/
 
 
-/*var storageMethod = multer.diskStorage({
-    destination: function (req, file, cb) {
+var storageMethod = multer.diskStorage({
+    destination: function (req, files, cb) {
         console.log("In destination");
-        cb(null, './uploads/');
+        cb(null, './public/uploads/');
     },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '_' + file.originalname);
+    filename: function (req, files, cb) {
+        cb(null, Date.now() + '_' + files.originalname);
     }
 });
 
 
-app.use('/file/',multer({storage: storageMethod}).any());*/
+app.use('/file/',multer({storage: storageMethod}).any());
 
 
 

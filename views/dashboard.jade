@@ -126,11 +126,11 @@ html(lang='en')
                         br
     
                 .col-xs-12.col-sm-12.col-md-6.col-lg-6
-                    form(method='post', action='/file/upload', enctype='multipart/form-data')
+                    form(method='post' enctype='multipart/form-data' action='/file/upload')
                         .form-group
                             label(for='portfolioItemName') Enter file name: &nbsp;
-                            input(type='text', name='portfolioItemName')
-                            input(type='file', name='portfolioFile')
+                            input#portfolioItemName(type='text', name='portfolioItemName')
+                            input#portfolioFile(type='file', name='portfolioFile')
                             button.btn.btn-warning(type='submit') Upload File
                         
                         

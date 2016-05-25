@@ -1,11 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-
+var fs = require('fs');
+var files = new Array();
 var mongoClient = require('mongodb').MongoClient;
 var monk = require('monk');
 
 var multer = require('multer');
+var upload = multer();
+//var upload = multer({ dest: './uploads' });
 var db = monk('mongodb://localhost:27017/portfoliodb');
 
 //var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
@@ -256,6 +259,26 @@ router.get('/dashboard', function(req, res, next){
     }
 });
 } 
+});
+
+
+router.post('/file/upload', function(req, res, next) {
+  // req.files contains all the information about the files that
+  // have been uploaded, lets print it out and see what is in it
+  var portfolioObject = {};
+  var name = req.files.portfolioFile.name;
+  //portfolioObject.fileLocation = req.files.portfolioItem.name;
+  portfolioObject.fileLocation = name;
+  portfolioObject.filename = req.body.portfolioItemName;
+  var currentUser = req.session.username;
+  var db=req.db;
+  var collection = db.get('userTable');
+  collection.findAndModify({username: currentUser}, {$set: {portfolioItem: portfolioObject}}), function(){
+            console.log("Successful Update");  
+  };
+  
+  console.log(req.files);
+  res.redirect('/dashboard');
 });
 
 module.exports = router;

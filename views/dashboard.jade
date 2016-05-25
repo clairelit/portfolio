@@ -126,6 +126,11 @@ html(lang='en')
                         br
     
                 .col-xs-12.col-sm-12.col-md-6.col-lg-6
-                    h2 This is where all the portfolio stuff will go.
+                    form(method='post', action='/file/upload', enctype='multipart/form-data')
+                        .form-group
+                            label(for='portfolioItemName') Enter file name: &nbsp;
+                            input(type='text', name='portfolioItemName')
+                            input(type='file', name='portfolioFile')
+                            button.btn.btn-warning(type='submit') Upload File
                         
                         

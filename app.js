@@ -4,9 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var multer = require('multer');
 var routes = require('./routes/index');
 //var users = require('./routes/users');
+
+var files = require('./routes/index');
 
 var mongo = require('mongodb');
 var monk = require('monk');
@@ -61,6 +63,31 @@ var expressSessionOptions = {
 //session middleware - has to be used
 app.use(session(expressSessionOptions));
 
+var multerOptions={
+    dest:'./public/uploads/',
+    rename: function(fieldname, filename){
+        return filename+"_"+Date.now();
+    }    
+}
+    
+app.use('/file/', multer(multerOptions));
+
+
+/*var storageMethod = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log("In destination");
+        cb(null, './uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '_' + file.originalname);
+    }
+});
+
+
+app.use('/file/',multer({storage: storageMethod}).any());*/
+
+
+
 //This makes the database accessible to the router
 app.use(function(req, res, next){
   req.db=db;
@@ -69,7 +96,7 @@ app.use(function(req, res, next){
 
 
 app.use('/', routes);
-//app.use('/users', users);
+app.use('/file/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

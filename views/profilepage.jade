@@ -18,12 +18,14 @@ block content
             ul.nav.navbar-nav.navbar-right
               li
                 a.page-scroll(href='#about') Login/Register
+              
               li
-                a.page-scroll(href='#services') Services
-              li
-                a.page-scroll(href='#portfolio') Examples
+                a.page-scroll(href='#portfolio') Portfolio Pieces
               li
                 a.page-scroll(href='#contact') Contact
+              li
+                a.page-scroll(href='/dashboard') Dashboard
+              
           // /.navbar-collapse
         // /.container-fluid
         
@@ -34,114 +36,22 @@ block content
             h1 Welcome to #{user.firstname}'s portfolio
             hr
             p
-              | View and browse through portfolios or create your own personal one
-            a.btn.btn-primary.btn-xl.page-scroll(href='#about') Login/Register
+              | Browse through my portfolio pieces.  My contact details are at the end of this page
+              br
+              | Feel free to contact me to find out more.
+            a.btn.btn-primary.btn-xl.page-scroll(href='#about') My Biography
       section#about.bg-primary
         .container
           .row
-            .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
-              h2.section-heading Login
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12.text-center
+              h2.section-heading Biography
               hr.light
-              p.text-faded
-                | Upload your work, or browse through other portfolios
-              form(method='post', action='login')
-                .form-group
-                    label.cols-sm-2.control-label(for='username') Username
-                    .cols-sm-10
-                      .input-group
-                        span.input-group-addon
-                          i.fa.fa-users.fa(aria-hidden='true')
-                        input#username.form-control(type='text', name='username', placeholder='Enter your Username')
-                  .form-group
-                    label.cols-sm-2.control-label(for='password') Password
-                    .cols-sm-10
-                      .input-group
-                        span.input-group-addon
-                          i.fa.fa-lock.fa-lg(aria-hidden='true')
-                        input#password.form-control(type='password', name='password', placeholder='Enter your Password')
-                    button.btn.btn-default.btn-xl(type='submit') Login
-            
-            .col-xs-12.col-sm-12.col-md-6.col-lg-6.text-center
-                h2.section-heading Register
-                hr.light
-                p.text-faded
-                  | Upload your work, or browse through other portfolios
-                form(method='post', action='login')  
-                  .form-group
-                    label.cols-sm-2.control-label(for='firstname') First Name
-                    .cols-sm-10
-                      .input-group
-                        span.input-group-addon
-                          i.fa.fa-user.fa(aria-hidden='true')
-                        input#name.form-control(type='text', name='firstname', placeholder='Enter your Surname')
-                  .form-group
-                    label.cols-sm-2.control-label(for='surname') Surname
-                    .cols-sm-10
-                      .input-group
-                        span.input-group-addon
-                          i.fa.fa-user.fa(aria-hidden='true')
-                        input#name.form-control(type='text', name='surname', placeholder='Enter your Surname')
-                  .form-group
-                    label.cols-sm-2.control-label(for='username') Username
-                    .cols-sm-10
-                      .input-group
-                        span.input-group-addon
-                          i.fa.fa-users.fa(aria-hidden='true')
-                        input#username.form-control(type='text', name='username', placeholder='Enter your Username')
-                  .form-group
-                    label.cols-sm-2.control-label(for='email') Your Email
-                    .cols-sm-10
-                      .input-group
-                        span.input-group-addon
-                          i.fa.fa-envelope.fa(aria-hidden='true')
-                        input#email.form-control(type='text', name='email', placeholder='Enter your Email')
-                  .form-group
-                    label.cols-sm-2.control-label(for='password') Password
-                    .cols-sm-10
-                      .input-group
-                        span.input-group-addon
-                          i.fa.fa-lock.fa-lg(aria-hidden='true')
-                        input#password.form-control(type='password', name='password', placeholder='Enter your Password')
-                  .form-group
-                    label.cols-sm-2.control-label(for='confirm') Confirm Password
-                    .cols-sm-10
-                      .input-group
-                        span.input-group-addon
-                          i.fa.fa-lock.fa-lg(aria-hidden='true')
-                        input#confirm.form-control(type='password', name='confirm', placeholder='Confirm your Password')
-
-                    button.btn.btn-default.btn-xl(type='submit') Register
-                      
-            
+              p.text-faded #{user.bio}
               
-      section#services
-        .container
-          .row
-            .col-lg-12.text-center
-              h2.section-heading Your Portfolio Options
-              hr.primary
-        .container
-          .row
-            .col-lg-3.col-md-6.text-center
-              .service-box
-                i.fa.fa-4x.fa-camera.wow.bounceIn.text-primary
-                h3 Photographs
-                p.text-muted Show your photos in their best light.
-            .col-lg-3.col-md-6.text-center
-              .service-box
-                i.fa.fa-4x.fa-video-camera.wow.bounceIn.text-primary(data-wow-delay='.1s')
-                h3 Videos
-                p.text-muted Broadcast your videos to a wider audience.
-            .col-lg-3.col-md-6.text-center
-              .service-box
-                i.fa.fa-4x.fa-code.wow.bounceIn.text-primary(data-wow-delay='.2s')
-                h3 Repos
-                p.text-muted Include your favourite repositories in your portfolio.
-            .col-lg-3.col-md-6.text-center
-              .service-box
-                i.fa.fa-4x.fa-gamepad.wow.bounceIn.text-primary(data-wow-delay='.3s')
-                h3 SWFs
-                p.text-muted Embed your SWFs directly to your page.
+      .container
+      .col-xs-12.text-center
+        h2 My Portfolio Pieces
+      
       section#portfolio.no-padding
         .container-fluid
           .row.no-gutter

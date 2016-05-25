@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var mongoClient = require('mongodb').MongoClient;
 var monk = require('monk');
 
+var multer = require('multer');
 var db = monk('mongodb://localhost:27017/portfoliodb');
 
 //var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
@@ -256,12 +257,5 @@ router.get('/dashboard', function(req, res, next){
 });
 } 
 });
-
-
-/*router.get('/myPortfolio', function(req, res, next){
-  var yourName = req.query.yourName;
-  req.session.userName =yourName;
-  res.render('Hello', {usersName: yourName});
-});*/
 
 module.exports = router;

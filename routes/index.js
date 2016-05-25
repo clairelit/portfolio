@@ -266,18 +266,20 @@ router.post('/file/upload', function(req, res, next) {
   // req.files contains all the information about the files that
   // have been uploaded, lets print it out and see what is in it
   var portfolioObject = {};
-  var name = req.files.portfolioFile.name;
+  var currentUser = req.session.username;
+  var name = req.files.portfolioFile;
+  portfolioObject.user = currentUser;
   //portfolioObject.fileLocation = req.files.portfolioItem.name;
   portfolioObject.fileLocation = name;
-  portfolioObject.filename = req.body.portfolioItemName;
-  var currentUser = req.session.username;
+  //portfolioObject.filename = req.body.portfolioItemName;
+  
   var db=req.db;
-  var collection = db.get('userTable');
-  collection.findAndModify({username: currentUser}, {$set: {portfolioItem: portfolioObject}}), function(){
+  var collection = db.get('portfolioItems');
+  collection.insert({$set: {newPortfolioItem: portfolioObject}}, {}), function(){
             console.log("Successful Update");  
   };
   
-  console.log(req.files);
+  console.log(req.files + "Success");
   res.redirect('/dashboard');
 });
 

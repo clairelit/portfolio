@@ -81,15 +81,16 @@ app.use('/file/', multer(multerOptions));*/
 
 
 var storageMethod = multer.diskStorage({
-    destination: function (req, files, cb) {
+    destination: function (req, file, cb) {
         console.log("In destination");
         cb(null, './public/uploads/');
     },
-    filename: function (req, files, cb) {
-        cb(null, Date.now() + '_' + files.originalname);
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '_' + file.originalname);
     }
 });
 
+var upload = multer({ storageMethod: storageMethod});
 
 app.use('/file/',multer({storage: storageMethod}).any());
 

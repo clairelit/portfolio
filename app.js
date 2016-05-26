@@ -25,8 +25,8 @@ var mongoClient = require('mongodb').MongoClient;
 var db = monk('mongodb://localhost:27017/portfoliodb');
 // If I am running locally then use 'mongodb://localhost:27017/test' otherwise
 // look for the environment variable
-//var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
-var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/portfoliodb';
+var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://clairelit:irisheyes@ds030719.mlab.com:30719/portfoliodb';
+//var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/portfoliodb';
 
 //Checking for connection with the db
 mongoClient.connect(url, function(err, conn) {

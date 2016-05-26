@@ -329,8 +329,10 @@ router.post('/file/upload', function(req, res, next) {
   //portfolioObject.filename = req.body.portfolioItemName;
   
   var db=req.db;
-  var collection = db.get('portfolioItems');
-  collection.insert({$set: {newPortfolioItem: portfolioObject}}, {}), function(){
+  var collection = db.get('userTable');
+  
+  
+  collection.findAndModify({username: currentUser}, {$set: {newPortfolioItem: portfolioObject}}, {}), function(){
             console.log("Successful Update");  
   };
   

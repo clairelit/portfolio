@@ -19,7 +19,7 @@ var upload = multer();
 
 //Setting up variables so that the database will either run locally
 //or use a set of environment variable to run online
-var db = monk('mongodb://localhost:27017/portfoliodb');
+var db = monk('mongodb://clairelit:irisheyes@ds030719.mlab.com:30719/portfoliodb');
 
 var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://clairelit:irisheyes@ds030719.mlab.com:30719/portfoliodb';
 //var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/portfoliodb';

@@ -21,9 +21,8 @@ var upload = multer();
 //or use a set of environment variable to run online
 var db = monk('mongodb://localhost:27017/portfoliodb');
 
-var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
+var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://clairelit:irisheyes@ds030719.mlab.com:30719/portfoliodb';
 //var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/portfoliodb';
-
 
 
 /*router.get('/delete', function(req, res, next){

@@ -1,3 +1,5 @@
+//Getting the packages needed to add functionality to the web app
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,9 +12,12 @@ var fs = require ('fs');
 //var upload = multer({ dest: './uploads' });
 var routes = require('./routes/index');
 //var users = require('./routes/users');
+/*var app = require('express')(),
+mailer = require('express-mailer');*/
 
 //var files = require('./routes/index');
 
+//require monk and mongo and mongoClient to create a db and a connection to it
 var mongo = require('mongodb');
 var monk = require('monk');
 //var db = monk('mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb');
@@ -23,6 +28,7 @@ var db = monk('mongodb://localhost:27017/portfoliodb');
 //var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb';
 var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/portfoliodb';
 
+//Checking for connection with the db
 mongoClient.connect(url, function(err, conn) {
         if(err){
             console.log(err.message);
@@ -33,6 +39,17 @@ mongoClient.connect(url, function(err, conn) {
         }
 });
 
+/*mailer.extend(app, {
+  from: 'no-reply@example.com',
+  host: 'smtp.gmail.com', // hostname 
+  secureConnection: true, // use SSL 
+  port: 465, // port for secure SMTP 
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts 
+  auth: {
+    user: 'gmail.user@gmail.com',
+    pass: 'userpass'
+  }
+});*/
 
 /*
  * Requiring the following package to be able to use sessions.
@@ -79,21 +96,24 @@ var multerOptions={
     
 app.use('/file/', multer(multerOptions));*/
 
-
+//This variable and its method is to specify where files will be stored
+//(ie - in which folder). 
 var storageMethod = multer.diskStorage({
     destination: function (req, file, cb) {
         console.log("In destination");
         cb(null, './public/uploads/');
     },
+    ///assigns a new filename to each file using the currenct date and time.
     filename: function (req, file, cb) {
         cb(null, Date.now() + '_' + file.originalname);
     }
 });
 
-var upload = multer({ storageMethod: storageMethod});
 
+
+//Middleware to tell the app to use multer, and what storage method
 app.use('/file/',multer({storage: storageMethod}).any());
-
+var upload = multer({ storageMethod: storageMethod});
 
 
 //This makes the database accessible to the router
@@ -137,5 +157,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+//I have included this line so that when I inspect the element
+//online, because I find it difficult to read it when it's not prettyfied
+app.locals.pretty = true;
 
 module.exports = app;

@@ -1,6 +1,8 @@
 extends layout
 
 block content
+meta(http-equiv = 'Content-Type', content = 'text/html; charset=UTF-8')
+
   for user, i in userDetails 
     body#page-top
       nav#mainNav.navbar.navbar-default.navbar-fixed-top

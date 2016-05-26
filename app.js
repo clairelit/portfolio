@@ -22,7 +22,7 @@ var mongo = require('mongodb');
 var monk = require('monk');
 //var db = monk('mongodb://dbuserclaire:litclonmel@ds030719.mlab.com:30719/portfoliodb');
 var mongoClient = require('mongodb').MongoClient;
-var db = monk('mongodb://clairelit:irisheyes@ds030719.mlab.com:30719/portfoliodb');
+var db = monk('mongodb://localhost:27017/portfoliodb');
 // If I am running locally then use 'mongodb://localhost:27017/test' otherwise
 // look for the environment variable
 var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://clairelit:irisheyes@ds030719.mlab.com:30719/portfoliodb';
@@ -61,7 +61,7 @@ var app = express();
 
 
 // view engine setup
-app.set('views', path.join(__dirname,'..', 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public

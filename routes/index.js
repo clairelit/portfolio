@@ -42,16 +42,20 @@ router.get('/invalidusername', function(req, res, next){
 
 /* If a user is tring to register, the following code will be executed.
 The person registering is required to enter in all the details in the form, which
-will then be stored in a database. */
+will then be stored in a database.  Also, if the entered username already exists, the new user
+will be asked to chose a different username*/
 router.post('/register', function(req, res, next) {
 var db = req.db;
 
 var enteredUsername = req.body.username;
+var enteredEmail = req.body.email;
 var collection = db.get('userTable');
 
 collection.find({
         username: enteredUsername
-    }, function(e, docs) {
+    } && {email: enteredEmail},
+    
+     function(e, docs) {
       if (e) throw e;
       else
           if (docs.length>=1) {
@@ -82,7 +86,7 @@ collection.find({
                     };
                 });};
             });
-    
+
     });
 
 
